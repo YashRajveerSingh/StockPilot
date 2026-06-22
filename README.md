@@ -283,6 +283,27 @@ Pre-Final Year B.Tech (Information Technology)
 
 ---
 
+
+## Login Page
+
+![Login](frontend/screenshots/Login.png)
+
+## Dashboard
+
+![Dashboard](frontend/screenshots/Dashboard.png)
+
+## Categories
+
+![Categories](frontend/screenshots/Categories.png)
+
+## Products
+
+![Products](frontend/screenshots/Products.png)
+
+## Profile
+
+![Profile](frontend/screenshots/Profile.png)
+
 ## 📜 License
 
 This project is developed for educational and portfolio purposes.
