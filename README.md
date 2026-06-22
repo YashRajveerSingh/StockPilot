@@ -286,23 +286,23 @@ Pre-Final Year B.Tech (Information Technology)
 
 ## Login Page
 
-![Login](frontend/screenshots/Login.png)
+![Login](frontend/screenshoots/Login.png)
 
 ## Dashboard
 
-![Dashboard](frontend/screenshots/Dashboard.png)
+![Dashboard](frontend/screenshoots/Dashboard.png)
 
 ## Categories
 
-![Categories](frontend/screenshots/Categories.png)
+![Categories](frontend/screenshoots/Categories.png)
 
 ## Products
 
-![Products](frontend/screenshots/Products.png)
+![Products](frontend/screenshoots/Products.png)
 
 ## Profile
 
-![Profile](frontend/screenshots/Profile.png)
+![Profile](frontend/screenshoots/Profile.png)
 
 ## 📜 License
 
