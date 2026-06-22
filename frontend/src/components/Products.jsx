@@ -50,16 +50,8 @@ const filteredProducts =
         )
   );
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
   e.preventDefault();
-
-  console.log({
-    productName,
-    category,
-    price,
-    stock,
-    status,
-  });
 
   try {
     const productData = {
@@ -70,26 +62,47 @@ const filteredProducts =
       status,
     };
 
-    const response = await axios.post(
-      "http://localhost:3000/api/product/add",
-      productData,
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem(
-            "pos-token"
-          )}`,
-        },
-      }
-    );
-
-    console.log(response.data);
+    if (editId) {
+      // UPDATE PRODUCT
+      await axios.put(
+        `http://localhost:3000/api/product/${editId}`,
+        productData,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem(
+              "pos-token"
+            )}`,
+          },
+        }
+      );
+    } else {
+      // ADD PRODUCT
+      await axios.post(
+        "http://localhost:3000/api/product/add",
+        productData,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem(
+              "pos-token"
+            )}`,
+          },
+        }
+      );
+    }
 
     fetchProducts();
+
     setShowForm(false);
+    setEditId(null);
+
+    setProductName("");
+    setCategory("");
+    setPrice("");
+    setStock("");
+    setStatus("In Stock");
+
   } catch (error) {
-    console.log(
-      error.response?.data || error
-    );
+    console.log(error.response?.data || error);
   }
 };
 

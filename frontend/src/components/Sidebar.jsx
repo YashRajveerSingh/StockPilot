@@ -30,7 +30,7 @@ const Sidebar = () => {
       {/* Logo Section */}
       <div className="flex items-center justify-center h-16 bg-gray-800">
         <span className="hidden md:block text-lg font-bold">
-          Inventory MS
+          StockPilot
         </span>
 
         <span className="block md:hidden text-lg font-bold">

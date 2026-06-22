@@ -42,8 +42,15 @@ const [role, setRole] =
 const [joinDate, setJoinDate] =
   useState("");
 
+  const [stats, setStats] = useState({
+  totalOrders: 0,
+  totalProducts: 0,
+  totalSuppliers: 0,
+});
+
   useEffect(() => {
   fetchProfile();
+   fetchStats();
 }, []);
 
 const fetchProfile = async () => {
@@ -79,6 +86,55 @@ const fetchProfile = async () => {
         data?.joinDate || ""
       );
     }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const fetchStats = async () => {
+  try {
+
+    const token = localStorage.getItem("pos-token");
+
+    const [ordersRes, productsRes, suppliersRes] =
+      await Promise.all([
+        axios.get(
+          "http://localhost:3000/api/order",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        ),
+        axios.get(
+          "http://localhost:3000/api/product",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        ),
+        axios.get(
+          "http://localhost:3000/api/supplier",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        ),
+      ]);
+
+    setStats({
+      totalOrders:
+        ordersRes.data.orders?.length || 0,
+
+      totalProducts:
+        productsRes.data.products?.length || 0,
+
+      totalSuppliers:
+        suppliersRes.data.suppliers?.length || 0,
+    });
+
   } catch (error) {
     console.log(error);
   }
@@ -391,7 +447,7 @@ return (
           </p>
 
           <p className="font-semibold">
-            {profile?.role}
+            Admin
           </p>
         </div>
 
@@ -411,7 +467,7 @@ return (
           </p>
 
           <p className="font-semibold">
-            {profile?.joinDate}
+           06/06/2026
           </p>
         </div>
 
@@ -429,7 +485,7 @@ return (
         </h4>
 
         <p className="text-4xl font-bold text-blue-600 mt-2">
-          156
+          {stats.totalOrders}
         </p>
 
       </div>
@@ -441,7 +497,7 @@ return (
         </h4>
 
         <p className="text-4xl font-bold text-green-600 mt-2">
-          340
+         {stats.totalProducts}
         </p>
 
       </div>
@@ -453,7 +509,7 @@ return (
         </h4>
 
         <p className="text-4xl font-bold text-purple-600 mt-2">
-          28
+        {stats.totalSuppliers}
         </p>
 
       </div>

@@ -102,11 +102,11 @@ const Login = () => {
             </div>
 
             <h1 className="mt-4 text-3xl font-bold text-gray-800">
-              Welcome Back
+              Welcome Admin
             </h1>
 
             <p className="text-gray-500 mt-2">
-              Login to your POS Dashboard
+              Login to your StockPilot Dashboard
             </p>
 
           </div>
