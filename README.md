@@ -284,9 +284,7 @@ Pre-Final Year B.Tech (Information Technology)
 ---
 
 
-## Login Page
 
-![Login](frontend/screenshoots/Login.png)
 
 ## Dashboard
 
